@@ -1,12 +1,20 @@
-# Complete CSS Starter Files 
+# Bloom Barista Academy
 
-Welcome to Complete CSS! 
+We recommend that you use the current [LTS version of Node JS](https://nodejs.org/en/download/package-manager) for this. At the time of writing, Node `v20.15.1` was used.
 
-Once you have downloaded to starter files, open your terminal at the **root of the project** and run `npm install`. We recommend that you use the current [LTS version of Node JS](https://nodejs.org/en/download/package-manager) for this. At the time of writing, Node `v20.15.1` was used.
+Once you've cloned the repository:
+- Run `npm install`
+- Run `npm start`
 
-Once everything is installed, run `npm start` in your terminal. **This is the only command you need for the entire course**.
+## NPM Scripts
 
-All the stub files are in place for you so sit back and enjoy the course 🙂
+| Script | Command | Description |
+|---|---|---|
+| `npm start` | `concurrently "eleventy --serve --quiet" "npm run css -- --watch"` | Starts the dev server with Eleventy live reload and PostCSS watch |
+| `npm run build` | `npm run clean && eleventy && NODE_ENV=production npm run css` | Production build: cleans dist, runs Eleventy, compiles minified CSS |
+| `npm run css` | `npx postcss src/css/*.css --dir dist/css` | Compiles CSS via PostCSS only |
+| `npm run clean` | `rm -r -f dist && mkdir dist` | Removes and recreates the dist folder |
+| `npm run patterns:create` | `node src/lib/code-sample-generator.js -b 'patterns'` | CLI generator for scaffolding new pattern stubs |
 
 ---
 
