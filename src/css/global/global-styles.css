@@ -177,6 +177,217 @@ figcaption {
 }
 
 
+table {
+  border: var(--stroke);
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  text-align: left;
+  font-weight: var(--font-bold);
+  line-height: var(--leading-fine);
+}
+
+thead th {
+  padding-block: var(--space-s);
+}
+
+td,
+th {
+  padding: var(--space-xs) var(--space-s);
+}
+
+th:not(:only-of-type) {
+  border-block-end: var(--stroke);
+}
+
+th:only-of-type {
+  border-inline-end: var(--stroke);
+}
+
+:is(th, td) ~ :is(th, td) {
+  border-inline-start: var(--stroke);
+}
+
+tr + tr :is(th, td) {
+  border-block-start: var(--stroke);
+}
+
+caption {
+  caption-side: bottom;
+  margin-block-start: var(--space-s);
+}
+
+a:not([class]):hover {
+  text-underline-offset: 0.2lh;
+}
+
+:is(h1, h2, h3, h4) a:not([class]) {
+  text-decoration-thickness: 0.1ex;
+  text-underline-offset: 0.2ex;
+}
+
+:is(h1, h2, h3, h4) a:not([class]):hover {
+  text-underline-offset: 0.3ex;
+}
+
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus-color, currentColor);
+  outline-offset: var(--focus-offset, 0.2lh);
+}
+
+/* Firefox is the only browser that doesn't outline the whole element 
+unless you make it display: inline-block. That in itself causes multiple flow issues 
+so we can detect it, using its own vendor prefix and reduce focus offset */
+@supports (-moz-appearance: none) {
+  :root {
+    --focus-offset: 0.08em;
+  }
+}
+
+:target {
+  scroll-margin-block: 5lh;
+}
+
+::selection {
+  color: var(--color-dark);
+  background: var(--color-light);
+}
+
+hr {
+  border: none;
+  border-block-start: var(--stroke);
+  margin-block: var(--flow-space, var(--space-xl));
+}
+
+svg:not([class]) {
+  width: auto;
+  height: 1lh;
+}
+
+svg {
+  flex-shrink: 0;
+}
+
+svg[role='img'][width][height] {
+  width: revert;
+  height: revert;
+  background: var(--color-light);
+  padding: var(--space-xs);
+}
+
+/* There's a .flow composition, but this prevents forms from having to have that 
+applied where markup is harder to control in certain systems. It still uses the 
+--flow-space variables though to make managing space easier */
+form > * + * {
+  margin-top: var(--flow-space, 1rem);
+}
+
+:is(input, select, textarea) {
+  accent-color: var(--color-primary);
+}
+
+:is(input:not([type='checkbox'], [type='radio'], [type='color']), select, textarea) {
+  padding: 0.5em 0.8em;
+  border-radius: var(--radius-s);
+  border: var(--stroke-solid);
+  background: var(--color-dark-glare);
+  color: var(--color-light);
+  width: 100%;
+
+  &::placeholder {
+    color: var(--color-mid);
+  }
+}
+
+label {
+  line-height: var(--leading-fine);
+  font-weight: var(--font-medium);
+}
+
+label::after {
+  content: '\A';
+  white-space: pre;
+}
+
+/* Usually label wraps checkbox and radio buttons, so we give ourselves more layout and text-flow control with flex */
+label:has(input) {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-s);
+  font-weight: var(--font-normal);
+}
+
+label:has(input) + label:has(input) {
+  --flow-space: var(--space-s-m);
+}
+
+/* Slightly adjusts the vertical position of the check/radio */
+label:has(input) input {
+  transform: translateY(-0.1ex);
+}
+
+input:disabled {
+  background: var(--color-mid);
+}
+
+input:disabled,
+label input:disabled + * {
+  cursor: not-allowed;
+}
+
+fieldset {
+  border: var(--stroke);
+  padding: var(--space-s);
+}
+
+legend {
+  font-weight: var(--font-medium);
+  padding-inline: var(--space-xs);
+}
+
+summary {
+  font-weight: var(--font-bold);
+  cursor: pointer;
+}
+
+details[open] summary {
+  margin-block-end: var(--space-s);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
