@@ -5,6 +5,7 @@ title: 'Bloom'
 {% extends "layouts/base.njk" %}
 
 {% block content %}
-  {{ design.patterns.renderPattern('prose', {}) | safe }}
+  {{ design.patterns.renderPattern('labelled-icon', { utilities: 'text-light text-step-2' }) | safe }}
+  {# {{ design.patterns.renderPattern('prose', {}) | safe }} #}
 {% endblock %}
 
